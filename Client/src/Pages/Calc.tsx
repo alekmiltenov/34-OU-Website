@@ -2,23 +2,22 @@
 export default function Calc(){
 
     function calculate(): number{
-        let a: number = (document.getElementById("a") as HTMLInputElement).value as unknown as number;
-        let b: number = (document.getElementById("b") as HTMLInputElement).value as unknown as number;
-        let operation: string = (document.getElementById("operation")as HTMLInputElement).value as unknown as string;
+        let a: number = Number((document.getElementById("a") as HTMLInputElement).value);
+        let b: number = Number((document.getElementById("b") as HTMLInputElement).value);
+        let operation: string = (document.getElementById("operation")as HTMLInputElement).value as string;
 
         switch(operation){
             case "+": return a + b;
             case "-": return a - b;
             case "*": return a * b;
             case "/": return a / b;
-            default : console.log("you are gay ");  
+            default : return 1;
         }
-        return 0;
     }
 
         function returnAnswer(): void{
             let answer: number = calculate();
-            (document.getElementById("answer") as HTMLInputElement).textContent = String(answer);
+            (document.getElementById("answer") as HTMLHeadingElement).textContent = String(answer);
         }
 
     return(
